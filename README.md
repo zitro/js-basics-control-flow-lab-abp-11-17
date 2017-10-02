@@ -16,10 +16,15 @@ Scuber's drivers charge their passengers a variable amount based on how far they
 ## Read the Tests
 We know that you do not have much experience with testing, so that is why it is very important for you to read the instructions in this and every lab. That being said, reading the tests can often provide supplemental guidance on how to complete a lab. Let's take a look at the first test for this lab together:
 ```js
+var feet;
+var city;
+var tip;
+
 describe('index.js', function () {
   describe('scuberGreetingForFeet()', function () {
     it('gives customers a free sample if the ride is less than or equal to 400 feet', function () {
-      expect(scuberGreetingForFeet(199)).to.equal('This one is on me!');
+      feet = 199
+      expect(scuberGreetingForFeet()).to.equal('This one is on me!');
     });
 
     // tests continue...
@@ -27,9 +32,14 @@ describe('index.js', function () {
 });
 ```
 
-Ok so all of the fancy `describe` words are just there to organize the requirements, and provide a mechanism for what each function should do. By reading the text inside of the `describe` words, we can see that there is some function that should give customers a free sample, where the first 400 feet are free. Then in the next line we see a function called `scuberGreetingForFeet` being executed with `199` passed through as an argument to the function. Executing the `scuberGreetingForFeet` function with the argument should return `"This one is on me!"`.
+Ok so all of the fancy `describe` words are just there to organize the requirements, and provide a mechanism for what each function should do. By reading the text inside of the `describe` words, we can see that there is some function that should give customers a free sample, where the first 400 feet are free. Then in the next line we see a function called `scuberGreetingForFeet` being executed. Executing the `scuberGreetingForFeet` function should return `"This one is on me!"`.
 
-If we run the tests with the `learn` command, we see that `scuberGreetingForFeet` is not defined. We can fix this by writing a function `scuberGreetingForFeet` in the index.js file. The big insight is that the tests in the indexTest.js file are calling the functions that we write the index.js file. These tests pass arguments to our function. When this test passes an argument of `199` to our function, the `scuberGreetingForFeet` function should return `"This one is on me!"`. That makes sense, considering the text in the `describe` and `it` functions say that the first 400 feet should be free. That `199` must be indicating the distance in feet of the requested ride.
+If we run the tests with the `learn` command, we see that `scuberGreetingForFeet` currently returns `fix scuberGreetingForFeet!`. We can fix this by changing our function `scuberGreetingForFeet` in the `index.js` file. The big insight is that the tests in the `indexTest.js` file are calling the functions that we write the `index.js` file.  Now inside of this test, we see that it sets a variable of `feet` equal to 199.  
+
+When the variable `feet` equals `199`, the `scuberGreetingForFeet` function should return `"This one is on me!"`. That makes sense, considering the text in the `describe` and `it` functions say that the first 400 feet should be free. So the `199` must be indicating the distance in feet of the requested ride.  The line `return feet` currently returns the variable with `feet` set to `"fix scuberGreetingForFeet!"`.  Change the code so that it assigns the variable `feet` to equal `This one is on me!` and the first test will pass.  Now if you look to the next test, you can see that it changes the variable `feet` to 2001.  When `feet` equals 2001, the function should return `"I will gladly take your thirty bucks."`.  You should make use of an if else statement to have your function return different values.
+
+> Our Changing Variables
+How does the code inside of the function have access to the `feet` variable.  Well at the top of the `indexTest.js` file, we declare that variable (along with `tip` and `city`).  Because these variables are not enclosed in a function, they are global meaning that they are accessible throughout our codebase.  So our test first changes the variable of `feet` and then executes our function with the line `scuberGreetingForFeet()`.  This runs the code inside of the `scuberGreetingForFeet()` and returns a different value depending on our value.
 
 So reading tests are essentially like reading the instructions. It's something, we may have avoided for much of our lives, but when it comes to programming, tests fill in the picture of the goal we are trying to accomplish. They run mini-experiments on our code and help us better understand our code and the problem we are solving.
 

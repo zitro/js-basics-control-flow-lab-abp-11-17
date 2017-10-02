@@ -1,19 +1,24 @@
 // Write your code in this file!
 function scuberGreetingForFeet() {
+  let feet;
   if (feet <= 400) {
-    return 'This one is on me!';
+    feet = 'This one is on me!';
   } else if (1999 < feet && feet < 2500) {
-    return "I will gladly take your thirty bucks.";
+    feet = "I will gladly take your thirty bucks.";
   } else {
-    return "No can do.";
+    feet = "No can do.";
   }
+  return feet
 }
 
 function ternaryCheckCity() {
-  return city === 'NYC' ? 'Ok, sounds good.' : 'No go.';
+  let city;
+  city === 'NYC' ? 'Ok, sounds good.' : 'No go.';
+  return city;
 }
 
 function switchOnCharmFromTip() {
+  let charm
   switch (tip) {
     case 'generous':
       return 'Thank you so much.';
@@ -22,4 +27,5 @@ function switchOnCharmFromTip() {
     default:
       return 'Bye.';
   }
+  return charm
 }
