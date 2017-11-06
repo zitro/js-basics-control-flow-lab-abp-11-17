@@ -1,7 +1,6 @@
 // Write your code in this file!
-function trip(scruberGreetingForFeet, ternaryCheckCity, switchOnCharmFromTip){
 
-let scruberGreetingForFeet, ternaryCheckCity, switchOnCharmFromTip;
+    function scuberGreetingForFeet (feet) {
 if (scruberGreetingForFeet <= 400){
   return 'This one is on me!'
 }else if(scruberGreetingForFeet <= 2500){
@@ -9,20 +8,22 @@ if (scruberGreetingForFeet <= 400){
 }else if (scruberGreetingForFeet > 2500){
   return 'No go';
 }
+}
 
-ternaryCheckCity === NYC ? letGo = 'Ok, sounds good.' : letGo = 'No go';
-
-  switch (switchOnCharmFromTip) {
-    case generous:
-      return 'Thank you so much'
-      break;
-    case not as generous:
-      return '$30'
-      break;
-    default:
-      return 'Bye'
-      break;
+  
+    function ternaryCheckCity (city) {
+      return city === 'NYC' ? 'Ok, sounds good.' : 'No go.';
     }
 
+    function switchOnCharmFromTip (tip) {
+      switch (tip) {
+        case 'generous':
+          return 'Thank you so much.';
+        case 'not as generous':
+          return 'Thank you.';
+        default:
+          return 'Bye.';
+      }
+    }
 
 };
